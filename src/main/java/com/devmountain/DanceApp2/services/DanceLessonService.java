@@ -6,12 +6,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface DanceLessonService {
-    @Transactional
+
     List<DanceLessonDto> getAllDanceLesson();
-
+    @Transactional
     void addDanceLesson(DanceLessonDto danceLessonDto);
-
-    void deleteDanceLessonById(Long danceLessonId);
-
-    void updateDanceLesson(DanceLessonDto lessonDanceDto);
+    @Transactional
+    void deleteDanceLessonById(Long lessonId);
+    @Transactional
+    void updateDanceLesson(DanceLessonDto danceLessonDto, Long lessonId);
 }

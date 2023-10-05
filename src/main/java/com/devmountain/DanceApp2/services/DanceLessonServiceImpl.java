@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.regex.PatternSyntaxException;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,16 +35,17 @@ public class DanceLessonServiceImpl implements DanceLessonService {
         danceLessonOptional.ifPresent(danceLesson ->
                 danceLessonRepository.delete(danceLesson));
     }
+
     @Override
-    public void updateDanceLesson(DanceLessonDto lessonDanceDto) {
-        PatternSyntaxException danceLessonDto = null;
-        Optional<DanceLesson> danceLessonOptional = danceLessonRepository.findById(danceLessonDto.getClass());
+    public void updateDanceLesson(DanceLessonDto danceLessonDto, Long lessonId) {
+        Optional<DanceLesson> danceLessonOptional = danceLessonRepository.findById(lessonId);
         danceLessonOptional.ifPresent(danceLesson -> {
-            danceLesson.setLessonName(danceLessonDto.getMessage());
-            danceLesson.setDescription(danceLessonDto.getDescription());
+            danceLesson.setLessonName(danceLesson.getLessonName());
+            danceLesson.setDescription(danceLesson.getDescription());
             danceLessonRepository.saveAndFlush(danceLesson);
         });
 
     }
+
 }
 

@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface DanceLessonRepository extends JpaRepository<DanceLesson, Long> {
 
-    Optional<DanceLesson> findById(String message);
+    Optional<DanceLesson> findById(Long lessonId);
 }
