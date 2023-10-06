@@ -9,11 +9,11 @@ const loginPassword = document.getElementById('login-password')
 const headers = {
     'Content-Type':'application/json'
 }
-const baseUrl = 'http://localhost:8080/users'
+const baseUrl = 'http://localhost:8080/api/v1/users'
 
 const handleSubmit = async (e) => {
     e.preventDefault()
-
+    console.log('register')
     let bodyObj = {
         username: registerUsername.value,
         password: registerPassword.value
@@ -22,19 +22,19 @@ const handleSubmit = async (e) => {
     const response = await fetch(`${baseUrl}/register`, {
         method: "POST",
         body: JSON.stringify(bodyObj),
-        header: headers
-    })
-        .catch(err => console.error(err.message))
+        headers: headers
+    }).catch(err => console.error(err.message))
 
     const responseArr = await response.json()
 
     if(response.status === 200){
         window.location.replace(responseArr[0])
     }
-    //user login
-    const handleSubmit = async (e) =>{
+}
+//user login
+const handleLoginSubmit = async (e) =>{
         e.preventDefault()
-
+        console.log('login')
         let bodyObj = {
             username: loginUsername.value,
             password: loginPassword.value
@@ -44,9 +44,7 @@ const handleSubmit = async (e) => {
             method: "POST",
             body: JSON.stringify(bodyObj),
             headers: headers
-        })
-
-            .catch(err => console.error(err.message))
+        }).catch(err => console.error(err.message))
 
         const responseArr = await response.json()
 
@@ -56,5 +54,6 @@ const handleSubmit = async (e) => {
         }
 
 }
-registerForm.addEventListener("submit, handleSubmit")
-loginForm.addEventListener("submit, handleSubmit")
+
+registerForm.addEventListener("submit", handleSubmit);
+loginForm.addEventListener("submit", handleLoginSubmit);

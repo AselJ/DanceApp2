@@ -8,22 +8,41 @@
 </head>
 <body class="container">
 <div class="container-md">
-    <h1>Lesson</h1>
+    <h1>Dance Lessons</h1>
     <form id="lesson-form">
         <div class="form-group">
-            <label for="register-lesson">Lesson Name</label>
-            <input type="text" class="form-control" id="register-lesson" placeholder="Lesson">
+            <label for="lesson-lessonName">Lesson Name</label>
+            <input type="text" class="form-control" id="lesson-lessonName" placeholder="Lesson">
         </div>
         <div class="form-group">
-            <label for="register-description">Description</label>
-            <input type="text" class="form-control" id="register-description" placeholder="Description">
+            <label for="lesson-description">Description</label>
+            <input type="text" class="form-control" id="lesson-description" placeholder="Description">
         </div>
         <div class="mt-1">
             <button id="submit-button" type="submit" class="btn-btn-primary">Add Lesson</button>
             <a href="./danceLesson.html" class="btn btn-secondary">Delete</a>
         </div>
     </form>
+    <div id="lesson-container"></div>
 </div>
-<script src="./javascript/danceLesson.js" type="application/javascript"></script>
+<!--Card modal-->
+<div class="modal fade" id="lesson-edit-modal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="lesson-edit-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="note-edit-modal-title">More Lessons</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex">
+                <textarea class="form-control" rows="5" id="lesson-body"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="update-lesson-button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/danceLesson.js" type="application/javascript"></script>
 </body>
 </html>

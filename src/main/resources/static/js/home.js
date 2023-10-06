@@ -42,27 +42,6 @@ async function addDance(obj) {
     }
 }
 
-async function getDances(userId) {
-    await fetch(`${baseUrl}user/${userId}`, {
-        method: "GET",
-        headers: headers
-    })
-        .then(response => response.json())
-        .then(data => createDanceCards(data))
-        .catch(err => console.error(err))
-}
-
-async function getDanceById(noteId) {
-    await fetch(baseUrl + noteId, {
-        method: "GET",
-        headers: headers
-    })
-        .then(response => response.json())
-        .then(data => populateModal(data))
-        .catch(err => console.error(err.message))
-
-}
-
 async function handleDanceEdit(danceId) {
     let bodyObj = {
         id: danceId,
@@ -107,7 +86,7 @@ const createDanceCards = (array) => {
     })
 }
 
-const populateModal = (obj) =>{
+const populateModal = (obj) => {
     danceBody.innerText = ''
     danceBody.innerText = obj.body
     updateDanceBtn.setAttribute('data-dance-id', obj.id)
@@ -121,7 +100,3 @@ updateDanceBtn.addEventListener("click", (e) => {
     let danceId = e.target.getAttribute('data-dance-id')
     handleDanceEdit(danceId);
 })
-
-<a class="btn btn-danger navbar-btn" href="./user.html" onclick="handleLogout">Logout</a>
-
-}

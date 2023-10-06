@@ -1,5 +1,5 @@
 const registerForm = document.getElementById('register-form')
-const registerUsername = document.getElementById('get-userId')
+const registerUserId = document.getElementById('get-userId')
 const registerPassword = document.getElementById('get-lessonId')
 const registerPassword = document.getElementById('register-registrationDate')
 
@@ -20,7 +20,7 @@ const handleSubmit = async (e) => {
     const response = await fetch(`${baseUrl}/register`, {
         method: "Post",
         body: JSON.stringify(bodyObj),
-        header: headers
+        headers: headers
     })
         .catch(err => console.error(err.message))
 
