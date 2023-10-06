@@ -27,11 +27,11 @@ public class LessonRegister {
     private LocalDate date;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value = "userLessonRegister")
     private User user;
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value = "danceLessonLessonRegister")
     private DanceLesson danceLesson;
 
     public LessonRegister(LessonRegisterDto lessonRegisterDto){

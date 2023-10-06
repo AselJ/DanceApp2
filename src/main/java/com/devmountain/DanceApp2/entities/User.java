@@ -28,9 +28,10 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
+    @JsonManagedReference(value = "userLessonRegister")
     private Set<LessonRegister> lessonRegisterSet = new HashSet<>();
     public User(UserDto userDto) {
+
         if (userDto.getUsername() != null) {
             this.username = userDto.getUsername();
         }

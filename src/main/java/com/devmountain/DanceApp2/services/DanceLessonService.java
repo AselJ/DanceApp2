@@ -13,5 +13,5 @@ public interface DanceLessonService {
     @Transactional
     void deleteDanceLessonById(Long lessonId);
     @Transactional
-    void updateDanceLesson(DanceLessonDto danceLessonDto, Long lessonId);
+    void updateDanceLessonById(DanceLessonDto danceLessonDto, Long lessonId);
 }

@@ -15,5 +15,5 @@ public interface LessonRegisterService {
     void deleteLessonRegisterById(Long id);
 
     @Transactional
-    void updateLessonRegister(LessonRegisterDto lessonRegisterDto);
+    void updateLessonRegister(LessonRegisterDto lessonRegisterDto, Long id);
 }

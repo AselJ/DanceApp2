@@ -33,7 +33,7 @@ public class DanceLesson {
     private String description;
 
     @OneToMany(mappedBy = "danceLesson", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JsonManagedReference
+    @JsonManagedReference(value = "danceLessonLessonRegister")
     private Set<LessonRegister> registrationSet = new HashSet<>();
     public DanceLesson(DanceLessonDto danceLessonDto)
     {

@@ -14,8 +14,7 @@ import java.time.LocalDate;
 public class LessonRegisterDto implements Serializable {
     private Long id;
     private LocalDate date;
-    private UserDto userDto;
-    private DanceLessonDto danceLessonDto;
+
 
     public LessonRegisterDto(LessonRegister lessonRegister){
 

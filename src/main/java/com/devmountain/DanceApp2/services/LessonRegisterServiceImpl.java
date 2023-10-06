@@ -44,8 +44,8 @@ public class LessonRegisterServiceImpl implements LessonRegisterService {
     }
     @Override
     @Transactional
-    public void updateLessonRegister(LessonRegisterDto lessonRegisterDto) {
-        Optional<LessonRegister> lessonRegisterOptional = lessonRegisterRepository.findById(lessonRegisterDto.getId());
+    public void updateLessonRegister(LessonRegisterDto lessonRegisterDto, Long id) {
+        Optional<LessonRegister> lessonRegisterOptional = lessonRegisterRepository.findById(id);
         lessonRegisterOptional.ifPresent(lessonRegister -> {
             lessonRegister.setDate(lessonRegisterDto.getDate());
             lessonRegisterRepository.saveAndFlush(lessonRegister);

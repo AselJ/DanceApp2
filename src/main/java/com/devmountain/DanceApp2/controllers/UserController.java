@@ -14,7 +14,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/users")
 public class UserController {
-
     // Autowired in our Dependencies, which are the UserService because Controllers interact with ServiceLayers and the PasswordEncoder so that we can have incoming passwords
     @Autowired
     private UserService userService;
